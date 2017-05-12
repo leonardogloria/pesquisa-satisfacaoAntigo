@@ -54,14 +54,14 @@ export class PesquisaComponent implements OnInit,  OnDestroy {
   enviaPesquisa(event){
    
     event.preventDefault();
-    console.log(this.pesquisa);
-    let urlPut = 'https://ojgfieapcl.execute-api.us-east-1.amazonaws.com/v1/pesquisa-satisfacao'
+   
+    let urlPut = this.url + '/pesquisa/' + this.pesquisa.hash
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     console.log(JSON.stringify(this.pesquisa))
-    this.http.put('https://nl99z4yial.execute-api.us-east-1.amazonaws.com/homolog/pesquisa/123',JSON.stringify(this.pesquisa),{headers:headers})
+    this.http.put(urlPut,JSON.stringify(this.pesquisa),{headers:headers})
     .subscribe(() => {
-      console.log("pesquisa salva com sucesso");
+      
       this._router.navigate(['/sucesso']);
     },erro => {
       console.log('Erro ' + erro)

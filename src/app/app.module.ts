@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {PesquisaService} from './pesquisa.service'
+import {PesquisaDetailResolver} from './pesquisa.resolver.service'
+
 
 import { AppComponent } from './app.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
@@ -25,7 +27,7 @@ import { SucessoComponent } from './sucesso/sucesso.component'
     HttpModule,
     routing
   ],
-  providers: [PesquisaService],
+  providers: [PesquisaService,PesquisaDetailResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
