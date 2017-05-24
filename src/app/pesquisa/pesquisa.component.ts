@@ -58,7 +58,6 @@ export class PesquisaComponent implements OnInit,  OnDestroy {
     let urlPut = this.url + '/pesquisa/' + this.pesquisa.hash
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    console.log(JSON.stringify(this.pesquisa))
     this.http.put(urlPut,JSON.stringify(this.pesquisa),{headers:headers})
     .subscribe(() => {
       

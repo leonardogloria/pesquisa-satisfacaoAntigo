@@ -3,6 +3,7 @@ import {PesquisaComponent} from './pesquisa/pesquisa.component'
 import {ErrorComponent} from './error/error.component'
 import {SucessoComponent} from './sucesso/sucesso.component'
 import {PesquisaDetailResolver} from './pesquisa.resolver.service'
+
 const appRoutes: Routes = [
     {path: 'pesquisa/:hash',component:PesquisaComponent,
         resolve: {
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
     {path: 'sucesso',component:SucessoComponent},
     {path: '**', redirectTo: 'not-found'}
 ];
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes,{ useHash: true });
 
     
 

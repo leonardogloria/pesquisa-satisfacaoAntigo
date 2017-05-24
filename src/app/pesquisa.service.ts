@@ -16,7 +16,9 @@ export class PesquisaService {
 
   getPesquisa(hash:string):Promise<Pesquisa>{
     let urlGet = this.url + hash
-    return this._http.get(urlGet)
+    let headers = new Headers();
+    headers.append("Access-Control-Allow-Origin" , "*");
+    return this._http.get(urlGet,headers)
             .toPromise()
             .then(pesquisa => this.pesquisa = pesquisa.json().Items[0] as Pesquisa)
     
